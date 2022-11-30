@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+  lang-server:
+    build:
+      context: lang-server
+    ports:
+      - "9001:9001"
+      - "9002:9002"
+      - "9003:9003"
+      - "9004:9004"
+      - "9005:9005"
+      - "9006:9006"
+    command: node py-ls-middleware.js
+  app:
+    build:
+      context: app
+    ports:
+      - "8020:8080"
+    command: npm run serve
